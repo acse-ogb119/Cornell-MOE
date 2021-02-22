@@ -14,7 +14,17 @@ def cppify(array):
     :rtype: list
 
     """
-    return list(numpy.ravel(array))
+    # cpp_array = numpy.ravel(array)
+    # cpp_list = []
+    # for (i, val) in enumerate(cpp_array):
+    #     try:
+    #         cpp_list.append(val.item())
+    #     except:
+    #         cpp_list.append(val)
+    # return cpp_list
+    cpp_array = list(numpy.ravel(array))
+    return [a.item() for a in cpp_array]
+    # return list(numpy.ravel(array))
 
 
 def uncppify(array, expected_shape):
